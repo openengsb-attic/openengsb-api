@@ -22,7 +22,7 @@ import java.util.Map;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-import org.openengsb.core.api.TransfertMap;
+import org.openengsb.core.api.TransferMap;
 
 import com.google.common.base.Objects;
 
@@ -47,22 +47,22 @@ public class ConnectorDescription implements Serializable {
 
     private String domainType;
     private String connectorType;
-    private TransfertMap attributes = new TransfertMap();
-    private TransfertMap properties = new TransfertMap();
+    private TransferMap attributes = new TransferMap();
+    private TransferMap properties = new TransferMap();
 
-    public TransfertMap getAttributes() {
+    public TransferMap getAttributes() {
         return attributes;
     }
 
-    public void setAttributes(TransfertMap attributes) {
+    public void setAttributes(TransferMap attributes) {
         this.attributes = attributes;
     }
 
-    public TransfertMap getProperties() {
+    public TransferMap getProperties() {
         return properties;
     }
 
-    public void setProperties(TransfertMap properties) {
+    public void setProperties(TransferMap properties) {
         this.properties = properties;
     }
 
