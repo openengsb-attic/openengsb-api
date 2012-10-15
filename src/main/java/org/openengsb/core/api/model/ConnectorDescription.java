@@ -22,8 +22,9 @@ import java.util.Map;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.openengsb.core.api.TransferMap;
+
 import com.google.common.base.Objects;
-import com.google.common.collect.Maps;
 
 /**
  * Container class that describes a connector. It serves as common model for
@@ -46,8 +47,24 @@ public class ConnectorDescription implements Serializable {
 
     private String domainType;
     private String connectorType;
-    private Map<String, String> attributes = Maps.newHashMap();
-    private Map<String, Object> properties = Maps.newHashMap();
+    private TransferMap attributes = new TransferMap();
+    private TransferMap properties = new TransferMap();
+
+    public TransferMap getAttributes() {
+        return attributes;
+    }
+
+    public void setAttributes(TransferMap attributes) {
+        this.attributes = attributes;
+    }
+
+    public TransferMap getProperties() {
+        return properties;
+    }
+
+    public void setProperties(TransferMap properties) {
+        this.properties = properties;
+    }
 
     public ConnectorDescription() {
     }
@@ -84,20 +101,12 @@ public class ConnectorDescription implements Serializable {
         this.connectorType = connectorType;
     }
 
-    public Map<String, String> getAttributes() {
-        return attributes;
-    }
-
     public void setAttributes(Map<String, String> attributes) {
-        this.attributes = attributes;
-    }
-
-    public Map<String, Object> getProperties() {
-        return properties;
+        this.attributes.putAll(attributes);
     }
 
     public void setProperties(Map<String, Object> properties) {
-        this.properties = properties;
+        this.properties.putAll(properties);
     }
 
     @Override
